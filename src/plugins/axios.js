@@ -9,7 +9,7 @@ import axios from 'axios'
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 let config = {
-  // baseURL: process.env.baseURL || process.env.apiUrl || ""
+  baseURL: 'http://127.0.0.1:8888/api/private/v1/'
   // timeout: 60 * 1000, // Timeout
   // withCredentials: true, // Check cross-site Access-Control
 }
@@ -57,5 +57,6 @@ Plugin.install = function (Vue, options) {
 }
 
 Vue.use(Plugin)
+// Vue.prototype.$http = Plugin
 
 export default Plugin
