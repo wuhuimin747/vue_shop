@@ -1,11 +1,19 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Login from '../components/Login.vue';
-import Home from '../components/Home.vue';
-import Welcome from '../components/Welcome.vue';
-import Users from '../components/user/Users.vue';
-import Rights from '../components/power/Rights.vue';
-import Roles from '../components/power/Roles.vue';
+
+// import Login from '../components/Login.vue'
+const Login = () => import(/* webpackChunkName: "login_home_welcome" */ '../components/Login.vue')
+// import Home from '../components/Home.vue'
+const Home = () => import(/* webpackChunkName: "login_home_welcome" */ '../components/Home.vue')
+// import Welcome from '../components/Welcome.vue'
+const Welcome = () => import(/* webpackChunkName: "login_home_welcome" */ '../components/Welcome.vue')
+
+// import Users from '../components/user/Users.vue'
+const Users = () => import(/* webpackChunkName: "Users_Rights_Roles" */ '../components/user/Users.vue')
+// import Rights from '../components/power/Rights.vue'
+const Rights = () => import(/* webpackChunkName: "Users_Rights_Roles" */ '../components/power/Rights.vue')
+// import Roles from '../components/power/Roles.vue'
+const Roles = () => import(/* webpackChunkName: "Users_Rights_Roles" */ '../components/power/Roles.vue')
 
 Vue.use(VueRouter);
 

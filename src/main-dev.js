@@ -10,6 +10,9 @@ import './assets/fonts/iconfont.css';
 import './plugins/element.js';
 // 导入axios
 import axios from 'axios';
+// 导入Npregress
+import Nprogress from 'nprogress';
+import 'nprogress/nprogress.css'
 // axios全局配置
 axios.defaults.baseURL = 'http://localhost:8666/api/private/v1/';
 // axios挂载请求拦截器
@@ -17,7 +20,12 @@ axios.interceptors.request.use(config => {
   // 在请求头上加上Authorization
   config.headers.Authorization = window.sessionStorage.getItem('token');
   // console.log(config.headers);
+  Nprogress.start();
   return config;
+});
+axios.interceptors.response.use(ret => {
+  Nprogress.done();
+  return ret;
 });
 Vue.prototype.axios = axios;
 
